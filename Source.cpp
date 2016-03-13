@@ -24,12 +24,12 @@ public:
 			cout << "" << endl;
 		}
 	}
-	bool move(char space)
+	bool move(char space, int c)
 	{
-		int cnt = 1;
+		/*int cnt = 1;*/
 		char player = 'X';
 
-		if ((cnt % 2) == 0)
+		if ((c % 2) == 0)
 			player = 'O';
 		else
 		{
@@ -46,7 +46,7 @@ public:
 					if (Arr[i][j] == space)
 						Arr[i][j] = player;
 				}
-				else
+				else if(Arr[i][j]=='O' || Arr[i][j]=='X') //if the field is not vacant
 				{
 					cout << "The space is occuppied!!"<<endl;
 					break;
@@ -55,7 +55,7 @@ public:
 			}
 
 		}
-		cnt += 1;
+
 		return false;
 	}
 };
@@ -76,12 +76,12 @@ int main()
 		cin >> space;
 		system("cls");
 
-		Tic.move(space);
+		Tic.move(space,c);
 		Tic.print();
 		cout << endl << endl;
 		cout << "Chosen Space: " << space << endl;
 		cout << cnt << endl;
-		cout << cnt << endl;
+		cout << c << endl;
 		cnt += 1;
 		
 	}	
